@@ -15,6 +15,7 @@ public class Main {
 //        var commentService = new CommentService(dbComment, notificationComment);
 //        commentService.publishComment();
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
+        System.out.println(":)");
         CommentService service = (CommentService) context.getBean(CommentService.class);
         service.publishComment();
         context.close();

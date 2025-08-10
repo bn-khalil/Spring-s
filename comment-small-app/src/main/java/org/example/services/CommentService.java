@@ -4,10 +4,11 @@ import org.example.proxy.CommentNotificationProxy;
 import org.example.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 @Service
+@Lazy
 public class CommentService {
 
     private final CommentRepository commentRepository;
@@ -15,7 +16,10 @@ public class CommentService {
 
     @Autowired
     public CommentService(CommentRepository commentRepository,
-                          @Qualifier("Email") CommentNotificationProxy commentNotificationProxy) {
+                          @Qualifier("Email") CommentNotificationProxy commentNotificationProxy)
+            throws InterruptedException {
+        System.out.println("comment service bean created!");
+        Thread.sleep(2000);
         this.commentRepository = commentRepository;
         this.commentNotificationProxy = commentNotificationProxy;
     }
