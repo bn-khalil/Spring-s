@@ -5,10 +5,12 @@ import org.example.repositories.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
 @Lazy
+@Scope("prototype")
 public class CommentService {
 
     private final CommentRepository commentRepository;

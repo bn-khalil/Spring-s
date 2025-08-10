@@ -17,6 +17,8 @@ public class Main {
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
         System.out.println(":)");
         CommentService service = (CommentService) context.getBean(CommentService.class);
+        CommentService service1 = (CommentService) context.getBean(CommentService.class);
+        System.out.println(service1 == service);
         service.publishComment();
         context.close();
     }
