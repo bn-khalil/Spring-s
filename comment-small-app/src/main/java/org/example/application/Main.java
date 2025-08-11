@@ -1,6 +1,7 @@
 package org.example.application;
 
 import org.example.config.ProjectConfiguration;
+import org.example.model.Comment;
 import org.example.proxy.EmailCommentNotificationProxy;
 import org.example.repositories.CommentRepository;
 import org.example.repositories.DBCommentActions;
@@ -18,8 +19,10 @@ public class Main {
         System.out.println(":)");
         CommentService service = (CommentService) context.getBean(CommentService.class);
         CommentService service1 = (CommentService) context.getBean(CommentService.class);
-        System.out.println(service1 == service);
-        service.publishComment();
+//        System.out.println(service1 == service);
+
+        Comment comment = new Comment("khalil", "hello this is message");
+        service.publishComment(comment);
         context.close();
     }
 }
