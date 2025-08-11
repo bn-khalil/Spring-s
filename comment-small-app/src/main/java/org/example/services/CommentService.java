@@ -38,8 +38,8 @@ public class CommentService {
         logger.info("Publishing comment:" + comment.getMessage());
     }
 
-    public void checkPublishComment() {
-        logger.info("publishing checked");
-    }
+//    public void checkPublishComment() {
+//        logger.info("publishing checked");
+//    }
 
 }

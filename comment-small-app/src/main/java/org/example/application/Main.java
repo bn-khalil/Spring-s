@@ -23,7 +23,7 @@ public class Main {
 
         Comment comment = new Comment("khalil", "hello this is message");
         service.publishComment(comment);
-        service.checkPublishComment();
+//        service.checkPublishComment();
         context.close();
     }
 }
