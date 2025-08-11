@@ -1,5 +1,6 @@
 package org.example.services;
 
+import org.example.aspacts.ToLog;
 import org.example.model.Comment;
 import org.example.proxy.CommentNotificationProxy;
 import org.example.repositories.CommentRepository;
@@ -30,9 +31,15 @@ public class CommentService {
         this.commentNotificationProxy = commentNotificationProxy;
     }
 
+    @ToLog
     public void publishComment(Comment comment) {
         this.commentRepository.storeComment();
         this.commentNotificationProxy.sendComment();
         logger.info("Publishing comment:" + comment.getMessage());
     }
+
+    public void checkPublishComment() {
+        logger.info("publishing checked");
+    }
+
 }

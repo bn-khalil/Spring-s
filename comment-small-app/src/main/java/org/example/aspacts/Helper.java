@@ -14,10 +14,12 @@ import java.util.logging.Logger;
 public class Helper {
     private Logger logger = Logger.getLogger(CommentService.class.getName());
 
-    @Around("execution(* org.example.services.*.*(..))")
+//    @Around("execution(* org.example.services.*.*(..))")
+    @Around("@annotation(ToLog)")
     public void log(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.info("Method will execute");
+        String methodName = joinPoint.getSignature().getName();
+        logger.info("Method " + methodName + " will execute");
         joinPoint.proceed();
-        logger.info("Method executed");
+        logger.info("Method " + methodName + " executed");
     }
 }
